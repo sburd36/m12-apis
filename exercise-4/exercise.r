@@ -1,6 +1,7 @@
 # Install and load the jsonlite package
 library(jsonlite)
 library(httr)
+library(dplyr)
 
 # Make a variable base.url that has the same base url from the omdb documentation.
 # (Hint: visit https://www.omdbapi.com/ to find the base url)
@@ -30,7 +31,9 @@ View(movie_data)
 # Write a function called Director that accepts a data frame of movie info and returns
 # A vector of strings that states a movie and the director of said movie.
 Director <- function(movie.info) {
-  movie <- filter
+  information <- select(movie.info, contains("Title"), contains("Director"))
+  total.rows <- count(information)
+  
 }
 
 # Call Director with your favorite movie, and assign it to the variable movie.director
